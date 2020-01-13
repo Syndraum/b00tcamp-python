@@ -8,7 +8,7 @@ def main(argv):
             x = int(argv[1])
         except ValueError:
             print("ERROR")
-            return 0
+            sys.exit(0)
         if x == 0:
             print("I'm Zero.")
         elif x % 2 == 1:
