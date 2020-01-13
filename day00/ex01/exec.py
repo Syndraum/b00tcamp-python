@@ -1,8 +1,9 @@
 import sys
 
 
-def	main():
-	print(" ".join(sys.argv[1:]).swapcase()[::-1])
-	
+def main():
+    if len(sys.argv) > 1:
+        print(" ".join(sys.argv[1:]).swapcase()[::-1])
+
 if __name__ == "__main__":
-	main()
+    main()
