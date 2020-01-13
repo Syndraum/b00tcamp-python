@@ -1,5 +1,4 @@
 import sys
-import argparse
 
 
 def print_usage():
