@@ -18,5 +18,6 @@ def main(argv):
     elif len(argv) > 2:
         print("ERROR")
 
+
 if __name__ == "__main__":
     main(sys.argv)
