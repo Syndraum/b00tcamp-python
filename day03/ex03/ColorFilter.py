@@ -27,10 +27,29 @@ class ColorFilter:
                 pixel[2] = 0
 
     def celluloid(self, array, thresholds=4):
+        lst = np.linspace(0, 256, num=thresholds, endpoint=False)
+        print(lst)
         for line in array:
             for pixel in line:
                 for i in range(len(pixel)):
-                    j = 256/thresholds
-                    while pixel[i] >= j:
-                        j += 256/thresholds
-                    pixel[i] = j - 256/thresholds
+                    for seuil in reversed(lst):
+                        if seuil < pixel[i]:
+                            pixel[i] = seuil
+                            break
+
+    def to_grayscale(self, array, fil="mean"):
+        if fil is "m" or fil is "mean":
+            for line in array:
+                for pixel in line:
+                    grey = sum(pixel) / array.shape[2]
+                    for i in range(len(pixel)):
+                        pixel[i] = grey
+        elif fil is "w" or fil is "weighted":
+            for line in array:
+                for pixel in line:
+                    grey = np.sum([
+                        0.21 * pixel[0],
+                        0.72 * pixel[1],
+                        0.07 * pixel[2]])
+                    for i in range(len(pixel)):
+                        pixel[i] = grey

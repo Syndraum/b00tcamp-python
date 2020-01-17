@@ -5,5 +5,5 @@ from ColorFilter import ColorFilter
 imp = ImageProcessor()
 arr = imp.load("elon.jpg")
 cf = ColorFilter()
-cf.invert(arr)
+cf.to_grayscale(arr, "w")
 imp.display(arr)
