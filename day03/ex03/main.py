@@ -5,5 +5,5 @@ from ColorFilter import ColorFilter
 imp = ImageProcessor()
 arr = imp.load("elon.jpg")
 cf = ColorFilter()
-cf.celluloid(arr)
+cf.invert(arr)
 imp.display(arr)
