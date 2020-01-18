@@ -1,6 +1,11 @@
 from FileLoader import FileLoader
-from YoungestFellah import youngestFellah
+from YoungestFellah import *
 
 loader = FileLoader()
 data = loader.load("../athlete_events.csv")
-youngestFellah(data, 2004)
+# dict = youngestFellah(data, 2004)
+# print(dict)
+# print(proportionBySport(data, 2004, 'Tennis', 'F'))
+# print (howManyMedals(data, 'Kjetil Andr Aamodt'))
+sp = SpatioTemporalData(data)
+print(sp.where(1896))

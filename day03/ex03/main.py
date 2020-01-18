@@ -3,7 +3,7 @@ from ColorFilter import ColorFilter
 
 
 imp = ImageProcessor()
-arr = imp.load("elon.jpg")
+arr = imp.load("sunflower.png")
 cf = ColorFilter()
-cf.to_grayscale(arr, "w")
+cf.to_grayscale(arr, "m")
 imp.display(arr)
