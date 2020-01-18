@@ -23,6 +23,17 @@ def howManyMedals(data, name):
     return (medal)
 
 
+def howManyMedalsByCountry(data, country):
+    medal = {}
+    select = data.loc[data["Team"] == country].groupby(['Year'])
+    for index, value in select:
+        medal[index] = {
+            'G': value.loc[value['Medal'] == 'Gold']["Event"].nunique(),
+            'S': value.loc[value['Medal'] == 'Silver']["Event"].nunique(),
+            'B': value.loc[value['Medal'] == 'Bronze']["Event"].nunique()}
+    return (medal)
+
+
 class SpatioTemporalData:
     def __init__(self, data):
         self.data = data
